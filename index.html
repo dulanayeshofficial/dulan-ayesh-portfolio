@@ -75,12 +75,12 @@
   .case-stats .lbl{font-size:12px; color:rgba(255,255,255,0.6); margin-top:2px;}
 
   .writing-list{display:flex; flex-direction:column; gap:2px; margin-top:10px;}
-  .writing-item{display:flex; align-items:center; justify-content:space-between; gap:20px; padding:20px 0; border-bottom:1px solid rgba(0,0,0,0.08);}
+  .writing-item{display:grid; grid-template-columns:1fr 230px 70px; align-items:center; gap:20px; padding:20px 0; border-bottom:1px solid rgba(0,0,0,0.08);}
   .writing-item:first-child{border-top:1px solid rgba(0,0,0,0.08);}
   .writing-item h4{font-family:var(--serif); font-weight:500; font-size:17px; margin-bottom:4px;}
   .writing-item .src{font-family:var(--mono); font-size:12px; color:var(--slate);}
-  .writing-item .badge{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-700); background:var(--ink-100); padding:5px 10px; border-radius:100px; white-space:nowrap;}
-  .writing-item a{font-size:14px; font-weight:600; color:var(--ink-700); white-space:nowrap;}
+  .writing-item .badge{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-700); background:var(--ink-100); padding:5px 10px; border-radius:100px; white-space:nowrap; justify-self:start;}
+  .writing-item a{font-size:14px; font-weight:600; color:var(--ink-700); white-space:nowrap; justify-self:end;}
   .writing-item a:hover{text-decoration:underline;}
 
   .creative-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
@@ -115,7 +115,9 @@
   @media (max-width:640px){
     .navlinks{display:none;}
     .creative-grid{grid-template-columns:1fr;}
-    .writing-item{flex-direction:column; align-items:flex-start; gap:8px;}
+    .writing-item{grid-template-columns:1fr; gap:8px;}
+    .writing-item .badge{justify-self:start;}
+    .writing-item a{justify-self:start;}
   }
 </style>
 <script type="application/ld+json">
@@ -163,7 +165,7 @@
   <div class="wrap stats-grid">
     <div class="stat-item"><div class="num">+319%</div><p>Google search visibility increase, one client</p></div>
     <div class="stat-item"><div class="num">$47.01</div><p>Blended CPL turning around a stalled Meta Ads account</p></div>
-    <div class="stat-item"><div class="num">17</div><p>Published articles, real client blogs</p></div>
+    <div class="stat-item"><div class="num">32</div><p>Published articles, real client blogs</p></div>
     <div class="stat-item"><div class="num">5</div><p>Employers across SEO, fintech, and B2B</p></div>
   </div>
 </section>
