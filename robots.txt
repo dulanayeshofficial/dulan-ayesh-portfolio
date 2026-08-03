@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dulan-ayesh.dulanayeshofficial.workers.dev/sitemap.xml
+Sitemap: https://dulan-ayesh-portfolio.dulanayesh2.workers.dev/sitemap.xml
