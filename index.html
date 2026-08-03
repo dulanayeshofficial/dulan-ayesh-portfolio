@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dulan Ayesh — Full-Stack Digital Marketer</title>
+<meta name="description" content="Dulan Ayesh — full-stack digital marketer specializing in SEO, paid ads, content, and conversion tracking. Real campaigns, verifiable results.">
+<link rel="canonical" href="https://dulan-ayesh.dulanayeshofficial.workers.dev/">
+<meta name="theme-color" content="#3730A3">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dulan Ayesh — Full-Stack Digital Marketer">
+<meta property="og:description" content="Full-stack digital marketer specializing in SEO, paid ads, content, and conversion tracking. Real campaigns, verifiable results.">
+<meta property="og:site_name" content="Dulan Ayesh">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-900:#241D63; --ink-700:#3730A3; --ink-500:#5B54C4; --ink-100:#EAE8FA;
+    --ink:#1D1D1F; --slate:#6E6E73; --paper:#F5F5F7; --white:#FFFFFF;
+    --serif:'Fraunces',serif; --sans:'Inter',sans-serif; --mono:'IBM Plex Mono',monospace;
+    --max:1120px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans); color:var(--ink); background:var(--white); line-height:1.5; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  :focus-visible{outline:2px solid var(--ink-700); outline-offset:3px;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-700);}
+
+  header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.88); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.06);}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:var(--max); margin:0 auto;}
+  .brand{font-family:var(--serif); font-weight:500; font-size:18px;}
+  .navlinks{display:flex; align-items:center; gap:32px;}
+  .navlinks a{font-size:14px; font-weight:500; opacity:0.75; transition:opacity .2s;}
+  .navlinks a:hover{opacity:1;}
+  .navcta{font-size:14px; font-weight:500; padding:9px 18px; background:var(--ink); color:var(--white); border-radius:100px; transition:background .2s;}
+  .navcta:hover{background:var(--ink-700);}
+
+  .hero{padding:100px 0 70px; background:radial-gradient(ellipse 60% 50% at 88% 10%, var(--ink-100) 0%, transparent 60%);}
+  .hero h1{font-family:var(--serif); font-weight:400; font-size:clamp(36px,5vw,56px); line-height:1.1; margin:16px 0 22px; max-width:760px;}
+  .hero h1 em{font-style:italic; color:var(--ink-700); font-weight:500;}
+  .hero p.lede{font-size:18px; color:var(--slate); max-width:600px; line-height:1.65; margin-bottom:30px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{font-size:15px; font-weight:600; padding:14px 26px; background:var(--ink-700); color:var(--white); border-radius:100px; display:inline-block; transition:background .2s, transform .2s;}
+  .btn-primary:hover{background:var(--ink-900); transform:translateY(-1px);}
+  .btn-ghost{font-size:15px; font-weight:600; padding:14px 26px; border:1.5px solid rgba(0,0,0,0.14); border-radius:100px; display:inline-block; transition:border-color .2s, background .2s;}
+  .btn-ghost:hover{border-color:var(--ink-700); background:var(--ink-100);}
+
+  .stats{padding:50px 0; background:var(--ink); }
+  .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .stat-item .num{font-family:var(--serif); font-size:32px; color:var(--white); font-weight:500;}
+  .stat-item p{color:rgba(255,255,255,0.6); font-size:13px; margin-top:6px; line-height:1.5;}
+
+  .block{padding:100px 0;}
+  .block.alt{background:var(--paper);}
+  .block-head{max-width:620px; margin-bottom:50px;}
+  .block-head h2{font-family:var(--serif); font-weight:400; font-size:clamp(28px,3.2vw,38px); margin-top:14px; line-height:1.2;}
+  .block-head p{color:var(--slate); margin-top:14px; font-size:16px;}
+
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+  .about-grid p{color:var(--slate); font-size:16px; line-height:1.8; margin-bottom:18px;}
+  .creds{display:flex; gap:10px; flex-wrap:wrap; margin-top:24px;}
+  .creds span{font-family:var(--mono); font-size:12px; background:var(--white); border:1px solid rgba(0,0,0,0.08); padding:8px 14px; border-radius:100px; color:var(--ink-900);}
+
+  .case-card{background:var(--ink-900); color:var(--white); border-radius:20px; padding:44px; display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:center;}
+  .case-card h3{font-family:var(--serif); font-weight:400; font-size:26px; margin-bottom:16px; line-height:1.3;}
+  .case-card p{color:rgba(255,255,255,0.75); font-size:15px; line-height:1.7;}
+  .case-stats{display:grid; gap:18px;}
+  .case-stats .num{font-family:var(--serif); font-size:30px; color:var(--white); font-weight:500;}
+  .case-stats .lbl{font-size:12px; color:rgba(255,255,255,0.6); margin-top:2px;}
+
+  .writing-list{display:flex; flex-direction:column; gap:2px; margin-top:10px;}
+  .writing-item{display:flex; align-items:center; justify-content:space-between; gap:20px; padding:20px 0; border-bottom:1px solid rgba(0,0,0,0.08);}
+  .writing-item:first-child{border-top:1px solid rgba(0,0,0,0.08);}
+  .writing-item h4{font-family:var(--serif); font-weight:500; font-size:17px; margin-bottom:4px;}
+  .writing-item .src{font-family:var(--mono); font-size:12px; color:var(--slate);}
+  .writing-item .badge{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-700); background:var(--ink-100); padding:5px 10px; border-radius:100px; white-space:nowrap;}
+  .writing-item a{font-size:14px; font-weight:600; color:var(--ink-700); white-space:nowrap;}
+  .writing-item a:hover{text-decoration:underline;}
+
+  .creative-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .creative-card{border-radius:14px; overflow:hidden; border:1px solid rgba(0,0,0,0.06);}
+  .creative-card img{width:100%; display:block;}
+  .creative-card .cap{padding:14px 16px; background:var(--white);}
+  .creative-card .cap p{font-size:13px; color:var(--slate);}
+
+  .results-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .result-card{background:var(--white); border-radius:16px; padding:20px; border:1px solid rgba(0,0,0,0.06);}
+  .result-card img{border-radius:8px; margin-bottom:14px;}
+  .result-card h4{font-family:var(--serif); font-size:17px; font-weight:500; margin-bottom:6px;}
+  .result-card p{color:var(--slate); font-size:14px; line-height:1.6;}
+
+  .ctaband{background:var(--ink-900); color:var(--white); padding:90px 0; text-align:center;}
+  .ctaband h2{font-family:var(--serif); font-weight:400; font-size:clamp(28px,3.6vw,42px); max-width:600px; margin:0 auto 26px; line-height:1.25;}
+  .ctaband .btn-primary{background:var(--white); color:var(--ink-900);}
+  .ctaband .btn-primary:hover{background:var(--ink-100);}
+
+  footer{background:var(--ink); color:rgba(255,255,255,0.6); padding:40px 0;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; font-size:14px;}
+  .footer-row a{opacity:0.8;}
+  .footer-row a:hover{opacity:1;}
+
+  @media (max-width:900px){
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .case-card{grid-template-columns:1fr;}
+    .creative-grid{grid-template-columns:1fr 1fr;}
+    .results-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    .navlinks{display:none;}
+    .creative-grid{grid-template-columns:1fr;}
+    .writing-item{flex-direction:column; align-items:flex-start; gap:8px;}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dulan Ayesh",
+  "jobTitle": "Full-Stack Digital Marketer",
+  "description": "Digital marketer specializing in SEO, paid advertising, content strategy, and conversion tracking for service businesses.",
+  "url": "https://dulan-ayesh.dulanayeshofficial.workers.dev/",
+  "email": "mailto:dulanayesh2@gmail.com",
+  "sameAs": ["https://www.linkedin.com/in/dulanayesh/"]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#" class="brand">Dulan Ayesh</a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#case-study">Case Study</a>
+      <a href="#writing">Writing</a>
+      <a href="#creative">Creative</a>
+      <a href="#results">Results</a>
+    </div>
+    <a href="mailto:dulanayesh2@gmail.com" class="navcta">Get in touch</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Dulan Ayesh</span>
+    <h1>Full-stack digital marketer, focused on <em>predictable</em> growth.</h1>
+    <p class="lede">I help service businesses turn marketing into something measurable: more visibility, more qualified leads, and clearer ROI — across SEO, paid ads, content, and conversion tracking.</p>
+    <div class="hero-ctas">
+      <a href="mailto:dulanayesh2@gmail.com" class="btn-primary">Get in touch</a>
+      <a href="https://www.linkedin.com/in/dulanayesh/" target="_blank" rel="noopener" class="btn-ghost">Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat-item"><div class="num">+319%</div><p>Google search visibility increase, one client</p></div>
+    <div class="stat-item"><div class="num">$99 &rarr; $22</div><p>Cost-per-lead reduction, Meta Ads campaign</p></div>
+    <div class="stat-item"><div class="num">17</div><p>Published articles, real client blogs</p></div>
+    <div class="stat-item"><div class="num">5</div><p>Employers across SEO, fintech, and B2B</p></div>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <span class="eyebrow">Approach</span>
+      <h2>Understand the offer, build the system, don't guess.</h2>
+    </div>
+    <div>
+      <p>I start by understanding the offer and the customer's actual intent, then build a system across SEO, paid ads, content, and conversion tracking. I don't guess what works — I track performance, improve what's already working, and remove what doesn't.</p>
+      <p>I've worked across finance, fintech, scientific supply, and B2B SaaS — most recently rebuilding local SEO and content strategy for an Australian tax and mortgage firm, and running lead-gen campaigns for a hospitality-tech SaaS platform.</p>
+      <div class="creds">
+        <span>SEO</span><span>Paid Search &amp; Social</span><span>Content Strategy</span><span>Conversion Tracking</span><span>Email Marketing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="case-study">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="eyebrow">Case Study</span>
+      <h2>Where the strategy actually got tested.</h2>
+    </div>
+    <div class="case-card">
+      <div>
+        <h3>How I increased Google search visibility by 319% for an Australian tax + mortgage firm</h3>
+        <p>Rands Tax &amp; Business Consultants and Rands Financial Services had strong services but weren't showing up consistently on Google for tax and mortgage searches. I rebuilt their local SEO and content strategy around high-intent searches and trust-building pages.</p>
+      </div>
+      <div class="case-stats">
+        <div><div class="num">+319%</div><div class="lbl">Search visibility increase</div></div>
+        <div><div class="num">Page 1</div><div class="lbl">Rankings achieved</div></div>
+        <div><div class="num">Featured</div><div class="lbl">Snippet placements won</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="writing">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="eyebrow">Writing</span>
+      <h2>Published, ranked, verifiable.</h2>
+      <p>A sample from 17 published articles. Every link is live and checkable.</p>
+    </div>
+    <div class="writing-list">
+      <div class="writing-item">
+        <div><h4>ATO Red Flags 2025: How to Stay Off the Audit Radar</h4><span class="src">randstax.com.au</span></div>
+        <span class="badge">Featured snippet</span>
+        <a href="https://randstax.com.au/ato-red-flags-2025-how-to-stay-off-the-audit-radar/" target="_blank" rel="noopener">Read &rarr;</a>
+      </div>
+      <div class="writing-item">
+        <div><h4>What Can I Claim on Tax in Australia? Your 2025 Guide to Smart Deductions</h4><span class="src">randstax.com.au</span></div>
+        <span class="badge">Page 1 ranking</span>
+        <a href="https://randstax.com.au/what-can-i-claim-on-tax-in-australia-your-2025-guide-to-smart-deductions/" target="_blank" rel="noopener">Read &rarr;</a>
+      </div>
+      <div class="writing-item">
+        <div><h4>EOFY 2025 Checklist for Australian Small Businesses</h4><span class="src">randstax.com.au</span></div>
+        <span class="badge">Published</span>
+        <a href="https://randstax.com.au/eofy-2025-checklist-for-australian-small-businesses/" target="_blank" rel="noopener">Read &rarr;</a>
+      </div>
+      <div class="writing-item">
+        <div><h4>The Ultimate Guide to Refinancing Your Home Loan in Victoria</h4><span class="src">randsfinancialservices.com.au</span></div>
+        <span class="badge">Published</span>
+        <a href="https://www.randsfinancialservices.com.au/refinance-home-loan-victoria-guide/" target="_blank" rel="noopener">Read &rarr;</a>
+      </div>
+      <div class="writing-item">
+        <div><h4>RBA Cuts Cash Rate to 3.85% in May 2025: What It Means for Your Mortgage Strategy</h4><span class="src">randsfinancialservices.com.au</span></div>
+        <span class="badge">Timely / reactive</span>
+        <a href="https://www.randsfinancialservices.com.au/rba-rate-cut-may-2025/" target="_blank" rel="noopener">Read &rarr;</a>
+      </div>
+      <div class="writing-item">
+        <div><h4>First Home Buyer Checklist 2025 &ndash; Victoria Edition</h4><span class="src">randsfinancialservices.com.au</span></div>
+        <span class="badge">Published</span>
+        <a href="https://www.randsfinancialservices.com.au/first-home-buyer-checklist-2025-victoria-edition/" target="_blank" rel="noopener">Read &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="creative">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="eyebrow">Design &amp; social creative</span>
+      <h2>Where the writing meets the visual.</h2>
+      <p>Static posts, banners, and campaign creative across tax and finance clients.</p>
+    </div>
+    <div class="creative-grid">
+      <div class="creative-card">
+        <img src="assets/portfolio/creative-bridging-loans.jpg" alt="Buy First Sell Later bridging loans social post">
+        <div class="cap"><p>Bridging loans campaign &mdash; static post</p></div>
+      </div>
+      <div class="creative-card">
+        <img src="assets/portfolio/creative-tax-claim.jpg" alt="What Can I Claim on Tax in Australia social post">
+        <div class="cap"><p>Tax deductions guide &mdash; social post</p></div>
+      </div>
+      <div class="creative-card">
+        <img src="assets/portfolio/creative-first-home-buyer.jpg" alt="First home buyer Berwick Victoria social post">
+        <div class="cap"><p>First home buyer campaign &mdash; Berwick, VIC</p></div>
+      </div>
+      <div class="creative-card">
+        <img src="assets/portfolio/creative-late-lodger.jpg" alt="Late Lodger Don't Stress tax ad creative">
+        <div class="cap"><p>Late lodger reminder &mdash; ad creative</p></div>
+      </div>
+      <div class="creative-card">
+        <img src="assets/portfolio/creative-ato-warning.jpg" alt="ATO notices don't wait warning ad creative">
+        <div class="cap"><p>ATO audit awareness &mdash; ad creative</p></div>
+      </div>
+      <div class="creative-card">
+        <img src="assets/portfolio/creative-50off-banner.jpg" alt="Tax agent fee promotional banner">
+        <div class="cap"><p>Seasonal promotion &mdash; ad banner</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="results">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="eyebrow">Paid campaign results</span>
+      <h2>What the ad spend actually did.</h2>
+      <p>Real performance snapshots, not projections.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card">
+        <img src="assets/portfolio/result-facebook-leads.jpg" alt="Facebook leads campaign results">
+        <h4>Leads generation campaign</h4><p>364 on-platform leads from 113,500 reach, at Rs116.75 per lead.</p>
+      </div>
+      <div class="result-card">
+        <img src="assets/portfolio/result-messaging.jpg" alt="Social media messaging campaign results">
+        <h4>Social messaging campaign</h4><p>1,117 messaging conversations started, a 422% increase, with new contacts up 807%.</p>
+      </div>
+      <div class="result-card">
+        <img src="assets/portfolio/result-thruplay.jpg" alt="Video views reach-focused campaign results">
+        <h4>Video views campaign (reach-focused)</h4><p>157,229 ThruPlays and 642,595 reach on a Rs100,000 budget.</p>
+      </div>
+      <div class="result-card">
+        <img src="assets/portfolio/result-saas-leadgen.jpg" alt="B2B SaaS lead generation campaign strategy and results">
+        <h4>B2B SaaS lead generation</h4><p>58 MQLs generated, 3 clients converted within the same campaign window, at $2.10 CPL.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ctaband">
+  <div class="wrap">
+    <h2>Looking for a marketer who can plan, execute, and optimize end-to-end?</h2>
+    <a href="mailto:dulanayesh2@gmail.com" class="btn-primary">Get in touch</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>&copy; 2026 Dulan Ayesh</span>
+    <div style="display:flex; gap:24px;">
+      <a href="https://www.linkedin.com/in/dulanayesh/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:dulanayesh2@gmail.com">dulanayesh2@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
