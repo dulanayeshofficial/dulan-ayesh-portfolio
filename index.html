@@ -51,7 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.88); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.06);}
   nav{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:var(--max); margin:0 auto;}
   .brand{font-family:var(--serif); font-weight:500; font-size:18px;}
-  .navlinks{display:flex; align-items:center; gap:32px;}
+  .navlinks{display:flex; align-items:center; gap:26px;}
   .navlinks a{font-size:14px; font-weight:500; opacity:0.75; transition:opacity .2s;}
   .navlinks a:hover{opacity:1;}
   .navcta{font-size:14px; font-weight:500; padding:9px 18px; background:var(--ink); color:var(--white); border-radius:100px; transition:background .2s;}
@@ -248,7 +248,78 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .form-status.show{display:block;}
   .form-status a{color:inherit; text-decoration:underline; font-weight:600;}
 
+  /* ---- Interactive tools: tiles + modals ---- */
+  .tool-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .tool-tile{
+    display:flex; flex-direction:column; text-align:left; width:100%;
+    background:var(--white); border:1px solid rgba(0,0,0,0.09); border-radius:18px;
+    padding:28px; cursor:pointer; font:inherit; color:inherit;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .tool-tile:hover{transform:translateY(-3px); box-shadow:0 14px 32px rgba(0,0,0,.09); border-color:rgba(2,115,104,.4);}
+  .tool-kind{font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-900); background:var(--ink-100); padding:5px 11px; border-radius:100px; align-self:flex-start; margin-bottom:16px;}
+  .tool-tile h3{font-family:var(--serif); font-weight:500; font-size:20px; line-height:1.3; margin-bottom:10px;}
+  .tool-tile p{color:var(--slate); font-size:14.5px; line-height:1.65; margin-bottom:18px;}
+  .tool-cue{margin-top:auto; font-size:13.5px; font-weight:600; color:var(--ink-700); display:flex; align-items:center; gap:7px;}
+  .tool-cue svg{transition:transform .18s ease;}
+  .tool-tile:hover .tool-cue svg{transform:translateX(3px);}
+
+  dialog.tool-modal{
+    border:none; border-radius:20px; padding:0; max-width:660px; width:calc(100% - 32px);
+    max-height:88vh; overflow:hidden; background:var(--white); color:var(--ink);
+    margin:auto; /* restores <dialog> centering removed by the global margin reset */
+  }
+  dialog.tool-modal::backdrop{background:rgba(1,45,41,.55); backdrop-filter:blur(3px);}
+  .tm-inner{display:flex; flex-direction:column; max-height:88vh;}
+  .tm-head{padding:26px 28px 18px; border-bottom:1px solid rgba(0,0,0,.08); position:relative; flex-shrink:0;}
+  .tm-head h3{font-family:var(--serif); font-weight:500; font-size:22px; line-height:1.3; padding-right:44px;}
+  .tm-head .tool-kind{margin-bottom:12px;}
+  .tm-close{
+    position:absolute; top:22px; right:22px; width:36px; height:36px; border-radius:50%;
+    border:1px solid rgba(0,0,0,.12); background:var(--white); cursor:pointer;
+    display:grid; place-items:center; color:var(--slate); font-size:19px; line-height:1;
+  }
+  .tm-close:hover{background:var(--paper); color:var(--ink);}
+  .tm-body{padding:24px 28px 28px; overflow-y:auto; -webkit-overflow-scrolling:touch;}
+  .tm-note{font-size:14.5px; color:var(--slate); line-height:1.7; margin-bottom:20px;}
+  .tm-sub{font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-900); margin:26px 0 12px;}
+  .tm-approach{list-style:none; display:flex; flex-direction:column; gap:10px;}
+  .tm-approach li{position:relative; padding-left:22px; font-size:14.5px; color:var(--slate); line-height:1.65;}
+  .tm-approach li::before{content:""; position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background:var(--ink-500);}
+  .tm-disclaimer{margin-top:22px; font-size:12.5px; color:var(--slate); font-style:italic; line-height:1.6; border-left:2px solid rgba(0,0,0,.12); padding-left:12px;}
+
+  .demo{background:var(--paper); border:1px solid rgba(0,0,0,.07); border-radius:14px; padding:22px;}
+  .demo-tag{font-family:var(--mono); font-size:12px; letter-spacing:.07em; text-transform:uppercase; color:var(--slate); margin-bottom:16px; display:block;}
+  .fld{margin-bottom:14px;}
+  .fld label{display:block; font-size:13px; font-weight:500; margin-bottom:6px;}
+  .fld input, .fld select{
+    width:100%; padding:11px 13px; font:inherit; font-size:15px; color:var(--ink);
+    background:var(--white); border:1px solid rgba(0,0,0,.16); border-radius:9px; min-height:44px;
+  }
+  .fld input:focus, .fld select:focus{border-color:var(--ink-700); outline:2px solid rgba(2,115,104,.18); outline-offset:0;}
+  .fld .hint{font-size:12px; color:var(--slate); margin-top:5px;}
+  .out{margin-top:18px; padding-top:16px; border-top:1px dashed rgba(0,0,0,.15);}
+  .out-row{display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:7px 0; font-size:14px;}
+  .out-row span:first-child{color:var(--slate);}
+  .out-row span:last-child{font-family:var(--mono); font-weight:500;}
+  .out-row.total{margin-top:8px; padding-top:12px; border-top:1px solid rgba(0,0,0,.14); font-size:16px;}
+  .out-row.total span:last-child{color:var(--ink-900); font-weight:600;}
+
+  .chk{display:flex; flex-direction:column; gap:2px;}
+  .chk label{display:flex; align-items:flex-start; gap:11px; padding:11px 12px; border-radius:9px; cursor:pointer; font-size:14.5px; line-height:1.5; min-height:44px;}
+  .chk label:hover{background:rgba(2,115,104,.06);}
+  .chk input{width:19px; height:19px; margin-top:2px; accent-color:var(--ink-700); flex-shrink:0;}
+  .chk input:checked + span{color:var(--slate); text-decoration:line-through; text-decoration-color:rgba(2,115,104,.5);}
+  .meter{margin-top:18px; padding-top:16px; border-top:1px dashed rgba(0,0,0,.15);}
+  .meter-bar{height:8px; background:rgba(0,0,0,.09); border-radius:100px; overflow:hidden; margin-bottom:10px;}
+  .meter-fill{height:100%; width:0%; background:var(--ink-700); border-radius:100px; transition:width .35s ease;}
+  .meter-txt{font-size:14px; font-weight:500;}
+  .meter-txt em{font-style:normal; color:var(--slate); font-weight:400;}
+  @media (prefers-reduced-motion:reduce){ .tool-tile,.tool-cue svg,.meter-fill{transition:none !important;} }
+
   @media (max-width:900px){
+    .tool-grid{grid-template-columns:1fr 1fr;}
     .cap-grid{grid-template-columns:1fr 1fr;}
     .sites-grid{grid-template-columns:1fr;}
     .email-grid{grid-template-columns:1fr;}
@@ -276,6 +347,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .writing-item .badge{justify-self:start;}
     .writing-item a{justify-self:start;}
     .cap-grid{grid-template-columns:1fr;}
+    .tool-grid{grid-template-columns:1fr;}
+    dialog.tool-modal{max-width:100%; width:100%; max-height:100vh; height:100%; border-radius:0;}
+    .tm-inner{max-height:100vh; height:100%;}
+    .tm-head{padding:20px 20px 14px;}
+    .tm-body{padding:20px;}
     .stats-grid{grid-template-columns:1fr 1fr;}
     .block{padding:66px 0;}
     form{padding:24px;}
@@ -326,6 +402,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#experience">Experience</a>
       <a href="#case-study">Case Study</a>
       <a href="#builds">Builds</a>
+      <a href="#tools">Tools</a>
       <a href="#writing">Writing</a>
       <a href="#results">Results</a>
       <a href="#contact" class="navcta-mobile">Get in touch</a>
@@ -553,7 +630,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="block alt" id="email">
+<section class="block alt" id="tools">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="eyebrow">Interactive content</span>
+      <h2>Tools that answer the question people actually searched.</h2>
+      <p>Built for an Australian mortgage and tax client. Each one targets a search where every competing page explains the concept at length and never gives the reader a number. Open any tile &mdash; these are working rebuilds, not screenshots.</p>
+    </div>
+    <div class="tool-grid">
+
+      <button class="tool-tile" type="button" data-modal="m-cgt">
+        <span class="tool-kind">Calculator &middot; Tax</span>
+        <h3>Capital Gains Tax Estimator</h3>
+        <p>Answers "how much CGT will I pay" with an actual figure, and lets the 50% long-hold discount do the persuading.</p>
+        <span class="tool-cue">Try it
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </span>
+      </button>
+
+      <button class="tool-tile" type="button" data-modal="m-fhb">
+        <span class="tool-kind">Calculator &middot; Property</span>
+        <h3>First-Home Upfront Cost Calculator</h3>
+        <p>Shows first-home buyers the real cash needed, including the stamp duty and LMI that break most deposit plans.</p>
+        <span class="tool-cue">Try it
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </span>
+      </button>
+
+      <button class="tool-tile" type="button" data-modal="m-chk">
+        <span class="tool-kind">Assessment &middot; Lead gen</span>
+        <h3>Bridging Loan Readiness Check</h3>
+        <p>Reframes a "contact us" form as a self-check, so people engage before they're ready to talk to anyone.</p>
+        <span class="tool-cue">Try it
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<section class="block" id="email">
   <div class="wrap">
     <div class="block-head">
       <span class="eyebrow">Email &amp; lifecycle</span>
@@ -577,7 +694,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="block" id="writing">
+<section class="block alt" id="writing">
   <div class="wrap">
     <div class="block-head">
       <span class="eyebrow">Writing</span>
@@ -629,7 +746,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="block alt" id="creative">
+<section class="block" id="creative">
   <div class="wrap">
     <div class="block-head">
       <span class="eyebrow">Design &amp; social creative</span>
@@ -665,7 +782,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="block" id="results">
+<section class="block alt" id="results">
   <div class="wrap">
     <div class="block-head">
       <span class="eyebrow">Paid campaign results</span>
@@ -693,7 +810,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="block alt" id="contact">
+<section class="block" id="contact">
   <div class="wrap contact-grid">
     <div class="contact-side">
       <span class="eyebrow">Get in touch</span>
@@ -764,6 +881,195 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </footer>
+
+<dialog class="tool-modal" id="m-cgt" aria-labelledby="t-cgt">
+  <div class="tm-inner">
+    <div class="tm-head">
+      <span class="tool-kind">Calculator &middot; Tax</span>
+      <h3 id="t-cgt">Capital Gains Tax Estimator</h3>
+      <button class="tm-close" data-close aria-label="Close">&times;</button>
+    </div>
+    <div class="tm-body">
+      <p class="tm-note">People selling an investment property search "how much CGT will I pay" and land on 2,000-word explainers that never give them a number. The opportunity was to answer it directly &mdash; and let the 50% long-hold discount do the persuading, since most sellers don't realise how much it changes the figure.</p>
+      <div class="demo">
+        <span class="demo-tag">Working demo &middot; simplified</span>
+        <div class="fld"><label for="cgt-buy">Purchase price</label>
+          <input type="number" id="cgt-buy" inputmode="numeric" value="450000" min="0" step="1000"></div>
+        <div class="fld"><label for="cgt-sell">Sale price</label>
+          <input type="number" id="cgt-sell" inputmode="numeric" value="700000" min="0" step="1000"></div>
+        <div class="fld"><label for="cgt-hold">Asset held for</label>
+          <select id="cgt-hold">
+            <option value="0.5" selected>More than 12 months (50% discount)</option>
+            <option value="1">12 months or less (no discount)</option>
+          </select></div>
+        <div class="fld"><label for="cgt-rate">Your marginal tax rate</label>
+          <select id="cgt-rate">
+            <option value="0.19">19% ($18,201 &ndash; $45,000)</option>
+            <option value="0.325" selected>32.5% ($45,001 &ndash; $120,000)</option>
+            <option value="0.37">37% ($120,001 &ndash; $180,000)</option>
+            <option value="0.45">45% ($180,001+)</option>
+          </select></div>
+        <div class="out" aria-live="polite">
+          <div class="out-row"><span>Capital gain</span><span id="cgt-gain">&mdash;</span></div>
+          <div class="out-row"><span>Discount applied</span><span id="cgt-disc">&mdash;</span></div>
+          <div class="out-row"><span>Taxable portion</span><span id="cgt-tax">&mdash;</span></div>
+          <div class="out-row total"><span>Estimated CGT</span><span id="cgt-owed">&mdash;</span></div>
+        </div>
+      </div>
+      <p class="tm-sub">What I did</p>
+      <ul class="tm-approach">
+        <li>Wrote the field labels in the words people search with, not accounting terminology.</li>
+        <li>Defaulted the hold period to "more than 12 months" so the discount is visible immediately &mdash; the surprise is the hook.</li>
+        <li>Put the limitations in a visible callout rather than fine print, because in financial services trust is the conversion mechanism.</li>
+        <li>Built it into a content page rather than a separate tool, so it earned rankings and captured intent in the same place.</li>
+      </ul>
+      <p class="tm-disclaimer">Rebuilt here as an illustrative demo with simplified logic. Not tax advice, and not the production calculator.</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="tool-modal" id="m-fhb" aria-labelledby="t-fhb">
+  <div class="tm-inner">
+    <div class="tm-head">
+      <span class="tool-kind">Calculator &middot; Property</span>
+      <h3 id="t-fhb">First-Home Upfront Cost Calculator</h3>
+      <button class="tm-close" data-close aria-label="Close">&times;</button>
+    </div>
+    <div class="tm-body">
+      <p class="tm-note">First-home buyers save toward a deposit and assume that's the barrier. Then stamp duty and lender's mortgage insurance arrive and the plan breaks. This puts the real total in front of them early, and makes the 20% deposit threshold concrete rather than abstract.</p>
+      <div class="demo">
+        <span class="demo-tag">Working demo &middot; simplified</span>
+        <div class="fld"><label for="fhb-price">Target property price</label>
+          <input type="number" id="fhb-price" inputmode="numeric" value="610000" min="0" step="5000">
+          <span class="hint">Entry-level homes in the target area started around $610,000.</span></div>
+        <div class="fld"><label for="fhb-dep">Your deposit amount</label>
+          <input type="number" id="fhb-dep" inputmode="numeric" value="65000" min="0" step="1000"></div>
+        <div class="out" aria-live="polite">
+          <div class="out-row"><span>Deposit covers</span><span id="fhb-pct">&mdash;</span></div>
+          <div class="out-row"><span>Stamp duty (est.)</span><span id="fhb-duty">&mdash;</span></div>
+          <div class="out-row"><span>LMI (est.)</span><span id="fhb-lmi">&mdash;</span></div>
+          <div class="out-row total"><span>Cash needed upfront</span><span id="fhb-total">&mdash;</span></div>
+        </div>
+      </div>
+      <p class="tm-sub">What I did</p>
+      <ul class="tm-approach">
+        <li>Anchored the price field with a real local figure, so the first number on screen already feels relevant rather than hypothetical.</li>
+        <li>Showed deposit as a percentage, because "12% deposit" triggers the LMI realisation faster than a dollar figure does.</li>
+        <li>Kept it to two inputs. Every extra field costs completions, and the goal was the realisation, not precision.</li>
+        <li>Targeted suburb-level search intent, far less contested than national mortgage keywords.</li>
+      </ul>
+      <p class="tm-disclaimer">Rebuilt here as an illustrative demo with simplified stamp duty and LMI logic. Not financial advice, and not the production calculator.</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="tool-modal" id="m-chk" aria-labelledby="t-chk">
+  <div class="tm-inner">
+    <div class="tm-head">
+      <span class="tool-kind">Assessment &middot; Lead gen</span>
+      <h3 id="t-chk">Bridging Loan Readiness Check</h3>
+      <button class="tm-close" data-close aria-label="Close">&times;</button>
+    </div>
+    <div class="tm-body">
+      <p class="tm-note">Bridging finance is high-anxiety and poorly understood, so a "contact us" form gets ignored. Reframing it as a readiness self-check gave people a reason to engage before they were ready to talk to anyone, and produced far better-qualified enquiries.</p>
+      <div class="demo">
+        <span class="demo-tag">Working demo</span>
+        <div class="chk" id="chk-list">
+          <label><input type="checkbox"><span>I know the estimated value of my current property</span></label>
+          <label><input type="checkbox"><span>I know roughly what I still owe on it</span></label>
+          <label><input type="checkbox"><span>I have a target purchase price in mind</span></label>
+          <label><input type="checkbox"><span>I understand I will briefly hold two loans at once</span></label>
+          <label><input type="checkbox"><span>I have a realistic timeframe for selling</span></label>
+          <label><input type="checkbox"><span>I can service repayments during the bridging period</span></label>
+        </div>
+        <div class="meter" aria-live="polite">
+          <div class="meter-bar"><div class="meter-fill" id="chk-fill"></div></div>
+          <p class="meter-txt" id="chk-txt">Nothing ticked yet &mdash; <em>start with what you already know.</em></p>
+        </div>
+      </div>
+      <p class="tm-sub">What I did</p>
+      <ul class="tm-approach">
+        <li>Wrote every item as something the person can answer alone, so nothing forces a phone call too early.</li>
+        <li>Used progress feedback rather than a score &mdash; progress invites completion, scoring invites abandonment.</li>
+        <li>Placed the capture step after the value was delivered, not before it.</li>
+        <li>Framed the hardest item, holding two loans, as a comprehension check &mdash; which surfaced the real objection instead of hiding it.</li>
+      </ul>
+      <p class="tm-disclaimer">Rebuilt here as an illustrative demo. Not financial advice.</p>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var money=function(n){ if(!isFinite(n)||n<0)n=0; return '$'+Math.round(n).toLocaleString('en-AU'); };
+  var g=function(i){ return document.getElementById(i); };
+
+  document.querySelectorAll('[data-modal]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var d=g(b.getAttribute('data-modal'));
+      if(d&&d.showModal)d.showModal();
+    });
+  });
+  document.querySelectorAll('dialog.tool-modal').forEach(function(d){
+    d.querySelectorAll('[data-close]').forEach(function(c){ c.addEventListener('click',function(){d.close();}); });
+    d.addEventListener('click',function(e){ if(e.target===d)d.close(); });
+  });
+
+  function cgt(){
+    if(!g('cgt-buy'))return;
+    var buy=parseFloat(g('cgt-buy').value)||0, sell=parseFloat(g('cgt-sell').value)||0,
+        hold=parseFloat(g('cgt-hold').value), rate=parseFloat(g('cgt-rate').value),
+        gain=Math.max(sell-buy,0), taxable=gain*hold;
+    g('cgt-gain').textContent=money(gain);
+    g('cgt-disc').textContent=(hold===0.5)?'50% (held 12+ months)':'None';
+    g('cgt-tax').textContent=money(taxable);
+    g('cgt-owed').textContent=money(taxable*rate);
+  }
+  ['cgt-buy','cgt-sell','cgt-hold','cgt-rate'].forEach(function(i){
+    var e=g(i); if(e)e.addEventListener('input',cgt);
+  });
+  cgt();
+
+  function duty(p){
+    if(p<=25000)return p*0.014;
+    if(p<=130000)return 350+(p-25000)*0.024;
+    if(p<=960000)return 2870+(p-130000)*0.06;
+    return p*0.055;
+  }
+  function fhb(){
+    if(!g('fhb-price'))return;
+    var price=parseFloat(g('fhb-price').value)||0, dep=parseFloat(g('fhb-dep').value)||0,
+        pct=price>0?(dep/price)*100:0, sd=duty(price), lmi=0;
+    if(price>0&&pct<20){
+      var lvr=100-pct, r=lvr>95?0.045:(lvr>90?0.032:(lvr>85?0.018:0.009));
+      lmi=(price-dep)*r;
+    }
+    g('fhb-pct').textContent=pct.toFixed(1)+'% of price';
+    g('fhb-duty').textContent=money(sd);
+    g('fhb-lmi').textContent=(pct>=20)?'Not required (20%+)':money(lmi);
+    g('fhb-total').textContent=money(dep+sd+lmi);
+  }
+  ['fhb-price','fhb-dep'].forEach(function(i){
+    var e=g(i); if(e)e.addEventListener('input',fhb);
+  });
+  fhb();
+
+  var boxes=document.querySelectorAll('#chk-list input[type=checkbox]');
+  function chk(){
+    var done=0; boxes.forEach(function(b){ if(b.checked)done++; });
+    var total=boxes.length, pct=total?(done/total)*100:0;
+    var f=g('chk-fill'), t=g('chk-txt');
+    if(!f||!t)return;
+    f.style.width=pct+'%';
+    if(done===0)t.innerHTML='Nothing ticked yet &mdash; <em>start with what you already know.</em>';
+    else if(done<total/2)t.innerHTML=done+' of '+total+' &mdash; <em>worth gathering a few more details first.</em>';
+    else if(done<total)t.innerHTML=done+' of '+total+' &mdash; <em>close. A broker could fill the gaps.</em>';
+    else t.innerHTML='All '+total+' &mdash; <em>ready to have a real conversation.</em>';
+  }
+  boxes.forEach(function(b){ b.addEventListener('change',chk); });
+  chk();
+})();
+</script>
 
 <script>
 (function(){
