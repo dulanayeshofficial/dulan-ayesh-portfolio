@@ -12,14 +12,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dulan Ayesh — Full-Stack Digital Marketer</title>
-<meta name="description" content="Dulan Ayesh — full-stack digital marketer specializing in SEO, paid ads, content, and conversion tracking. Real campaigns, verifiable results.">
+<meta name="description" content="Dulan Ayesh — full-stack digital marketer managing $20,000+ monthly Google Ads spend across 16 US and Canadian accounts. Paid media, SEO, landing pages, email, and conversion tracking.">
 <link rel="canonical" href="https://dulanayesh.dulanayesh2.workers.dev/">
 <meta name="theme-color" content="#027368">
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="profile">
 <meta property="og:title" content="Dulan Ayesh — Full-Stack Digital Marketer">
-<meta property="og:description" content="Full-stack digital marketer specializing in SEO, paid ads, content, and conversion tracking. Real campaigns, verifiable results.">
+<meta property="og:description" content="Managing $20,000+ monthly Google Ads spend across 16 US and Canadian accounts. Paid media, SEO, landing pages, email, and the tracking that proves it worked.">
 <meta property="og:site_name" content="Dulan Ayesh">
+<meta property="og:url" content="https://dulanayesh.dulanayesh2.workers.dev/">
+<meta property="og:image" content="https://dulanayesh.dulanayesh2.workers.dev/assets/portfolio/founder-photo.jpg">
+<meta property="og:image:alt" content="Dulan Ayesh Hettihewa">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dulan Ayesh — Full-Stack Digital Marketer">
+<meta name="twitter:description" content="Managing $20,000+ monthly Google Ads spend across 16 US and Canadian accounts. Paid media, SEO, landing pages, email, and tracking.">
+<meta name="twitter:image" content="https://dulanayesh.dulanayesh2.workers.dev/assets/portfolio/founder-photo.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +43,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   html{scroll-behavior:smooth;}
   body{font-family:var(--sans); color:var(--ink); background:var(--white); line-height:1.5; -webkit-font-smoothing:antialiased;}
   a{color:inherit; text-decoration:none;}
-  img{display:block; max-width:100%;}
+  img{display:block; max-width:100%; height:auto;}
   :focus-visible{outline:2px solid var(--ink-700); outline-offset:3px;}
   .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
   .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-700);}
@@ -85,7 +93,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .writing-list{display:flex; flex-direction:column; gap:2px; margin-top:10px;}
   .writing-item{display:grid; grid-template-columns:1fr 230px 70px; align-items:center; gap:20px; padding:20px 0; border-bottom:1px solid rgba(0,0,0,0.08);}
   .writing-item:first-child{border-top:1px solid rgba(0,0,0,0.08);}
-  .writing-item h4{font-family:var(--serif); font-weight:500; font-size:17px; margin-bottom:4px;}
+  .writing-item h3{font-family:var(--serif); font-weight:500; font-size:17px; margin-bottom:4px;}
   .writing-item .src{font-family:var(--mono); font-size:12px; color:var(--slate);}
   .writing-item .badge{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-700); background:var(--ink-100); padding:5px 10px; border-radius:100px; white-space:nowrap; justify-self:start;}
   .writing-item a{font-size:14px; font-weight:600; color:var(--ink-700); white-space:nowrap; justify-self:end;}
@@ -100,7 +108,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .results-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
   .result-card{background:var(--white); border-radius:16px; padding:20px; border:1px solid rgba(0,0,0,0.06);}
   .result-card img{border-radius:8px; margin-bottom:14px;}
-  .result-card h4{font-family:var(--serif); font-size:17px; font-weight:500; margin-bottom:6px;}
+  .result-card h3{font-family:var(--serif); font-size:17px; font-weight:500; margin-bottom:6px;}
   .result-card p{color:var(--slate); font-size:14px; line-height:1.6;}
 
   .ctaband{background:var(--ink-900); color:var(--white); padding:90px 0; text-align:center;}
@@ -120,12 +128,159 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .creative-grid{grid-template-columns:1fr 1fr;}
     .results-grid{grid-template-columns:1fr;}
   }
+  /* ---- Skip link ---- */
+  .skiplink{
+    position:absolute; left:-9999px; top:0; z-index:100;
+    background:var(--ink); color:var(--white); padding:12px 20px;
+    border-radius:0 0 10px 0; font-size:14px; font-weight:600;
+  }
+  .skiplink:focus{left:0;}
+
+  /* ---- Mobile nav ---- */
+  .navtoggle{
+    display:none; width:44px; min-width:44px; height:44px; flex-shrink:0; padding:0; cursor:pointer;
+    border:1px solid rgba(0,0,0,.12); border-radius:10px; background:var(--white);
+    place-items:center; color:var(--ink);
+  }
+  .navtoggle span{display:block; width:18px; height:2px; background:currentColor; position:relative;}
+  .navtoggle span::before,.navtoggle span::after{
+    content:""; position:absolute; left:0; width:18px; height:2px; background:currentColor;
+    transition:transform .2s ease, top .2s ease;
+  }
+  .navtoggle span::before{top:-6px;}
+  .navtoggle span::after{top:6px;}
+  header.nav-open .navtoggle span{background:transparent;}
+  header.nav-open .navtoggle span::before{top:0; transform:rotate(45deg);}
+  header.nav-open .navtoggle span::after{top:0; transform:rotate(-45deg);}
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.01ms !important; transition-duration:.01ms !important;}
+    html{scroll-behavior:auto;}
+  }
+  .navcta-mobile{display:none;}
+
+  /* ---- Career timeline ---- */
+  .tl{max-width:820px;}
+  .tl-item{position:relative; padding:0 0 34px 34px; border-left:2px solid rgba(0,0,0,0.08);}
+  .tl-item:last-child{border-left-color:transparent; padding-bottom:0;}
+  .tl-item::before{
+    content:""; position:absolute; left:-7px; top:4px; width:12px; height:12px;
+    border-radius:50%; background:var(--white); border:2px solid var(--ink-500);
+  }
+  .tl-item.now::before{background:var(--ink-700); border-color:var(--ink-700);}
+  .tl-role{font-family:var(--serif); font-size:18px; font-weight:500; line-height:1.35;}
+  .tl-meta{font-family:var(--mono); font-size:12px; color:var(--slate); margin:5px 0 9px; line-height:1.6;}
+  .tl-meta strong{color:var(--ink-700); font-weight:500;}
+  .tl-item p{color:var(--slate); font-size:14.5px; line-height:1.7;}
+  .tl-tags{display:flex; gap:7px; flex-wrap:wrap; margin-top:11px;}
+  .tl-tags span{
+    font-family:var(--mono); font-size:11px; background:var(--ink-100); color:var(--ink-900);
+    padding:4px 10px; border-radius:100px;
+  }
+
+  /* ---- Capability matrix ---- */
+  .cap-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .cap-col h3{font-family:var(--serif); font-size:17px; font-weight:500; margin-bottom:14px;}
+  .cap-col ul{list-style:none;}
+  .cap-col li{
+    font-size:14px; color:var(--slate); padding:7px 0;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+  }
+  .cap-col li:last-child{border-bottom:none;}
+
+  /* ---- Certifications ---- */
+  .certs-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:24px;}
+  .cert{
+    display:flex; align-items:center; gap:12px; background:var(--white);
+    border:1px solid rgba(0,0,0,0.09); border-radius:12px; padding:15px 20px;
+  }
+  .cert .mark{
+    width:34px; height:34px; border-radius:8px; background:var(--ink-100); color:var(--ink-900);
+    display:grid; place-items:center; font-family:var(--mono); font-size:11px; font-weight:500; flex-shrink:0;
+  }
+  .cert .nm{font-size:14px; font-weight:600;}
+  .cert .by{font-family:var(--mono); font-size:11px; color:var(--slate); margin-top:2px;}
+
+  /* ---- Websites / builds ---- */
+  .sites-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .site-card{
+    border:1px solid rgba(0,0,0,0.09); border-radius:16px; padding:26px; background:var(--white);
+    display:flex; flex-direction:column;
+  }
+  .site-card h3{font-family:var(--serif); font-size:19px; font-weight:500; margin-bottom:8px;}
+  .site-card .role{font-family:var(--mono); font-size:11px; color:var(--ink-700); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:12px;}
+  .site-card p{color:var(--slate); font-size:14.5px; line-height:1.7; flex:1;}
+  .site-card .stack{display:flex; gap:7px; flex-wrap:wrap; margin-top:16px;}
+  .site-card .stack span{font-family:var(--mono); font-size:11px; color:var(--slate); border:1px solid rgba(0,0,0,0.1); padding:4px 9px; border-radius:100px;}
+  .site-card .visit{margin-top:16px; font-size:14px; font-weight:600; color:var(--ink-700); align-self:flex-start;}
+  .site-card .visit:hover{text-decoration:underline;}
+
+  /* ---- Email results ---- */
+  .email-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:8px;}
+  .email-stat{border:1px solid rgba(0,0,0,0.09); border-radius:14px; padding:24px; background:var(--white);}
+  .email-stat .num{font-family:var(--serif); font-size:30px; font-weight:500; color:var(--ink-900);}
+  .email-stat p{font-size:13.5px; color:var(--slate); margin-top:7px; line-height:1.6;}
+
+  /* ---- Contact form ---- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1.15fr; gap:56px; align-items:start;}
+  .contact-side h2{font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,34px); line-height:1.25; margin-top:14px;}
+  .contact-side p{color:var(--slate); font-size:15.5px; line-height:1.75; margin-top:16px;}
+  .contact-direct{margin-top:26px; border-top:1px solid rgba(0,0,0,0.1); padding-top:22px;}
+  .contact-direct a{display:block; font-size:15px; font-weight:600; color:var(--ink-700); margin-top:8px;}
+  .contact-direct a:hover{text-decoration:underline;}
+  form{background:var(--paper); border-radius:18px; padding:34px;}
+  .field{margin-bottom:20px;}
+  .field label{display:block; font-size:13px; font-weight:600; margin-bottom:7px;}
+  .field input,.field select,.field textarea{
+    width:100%; padding:12px 15px; border-radius:10px; border:1.5px solid rgba(0,0,0,0.12);
+    font-family:var(--sans); font-size:15px; background:var(--white); color:var(--ink);
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink-700); outline:none;}
+  .field textarea{resize:vertical; min-height:110px;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .submit-btn{
+    width:100%; padding:15px; background:var(--ink-700); color:var(--white); border:none;
+    border-radius:10px; font-family:var(--sans); font-size:15px; font-weight:600; cursor:pointer;
+    transition:background .2s;
+  }
+  .submit-btn:hover{background:var(--ink-900);}
+  .form-note{font-size:12.5px; color:var(--slate); margin-top:13px; line-height:1.55;}
+  .form-status{display:none; padding:13px 15px; border-radius:10px; background:#FDF3E7; color:#7A4B12; font-size:14px; margin-bottom:18px;}
+  .form-status.show{display:block;}
+  .form-status a{color:inherit; text-decoration:underline; font-weight:600;}
+
+  @media (max-width:900px){
+    .cap-grid{grid-template-columns:1fr 1fr;}
+    .sites-grid{grid-template-columns:1fr;}
+    .email-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr; gap:36px;}
+  }
   @media (max-width:640px){
-    .navlinks{display:none;}
+    .navtoggle{display:grid;}
+    .navlinks{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; align-items:stretch; gap:0;
+      background:var(--white); padding:6px 0;
+      border-bottom:1px solid rgba(0,0,0,.08); box-shadow:0 14px 30px rgba(0,0,0,.09);
+    }
+    header.nav-open .navlinks{display:flex;}
+    .navlinks a{display:flex; align-items:center; min-height:48px; padding:0 28px; font-size:16px; opacity:1;}
+    .navlinks a:hover,.navlinks a:focus-visible{background:var(--paper);}
+    .navcta{display:none;}
+    .navlinks .navcta-mobile{
+      display:flex; justify-content:center; align-items:center; margin:8px 20px 6px;
+      padding:13px 18px; background:var(--ink); color:var(--white); border-radius:100px;
+      font-size:15px; font-weight:600; min-height:48px;
+    }
     .creative-grid{grid-template-columns:1fr;}
     .writing-item{grid-template-columns:1fr; gap:8px;}
     .writing-item .badge{justify-self:start;}
     .writing-item a{justify-self:start;}
+    .cap-grid{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    .block{padding:66px 0;}
+    form{padding:24px;}
+    .field-row{grid-template-columns:1fr;}
+    .case-card{padding:28px 22px;}
   }
 </style>
 <script type="application/ld+json">
@@ -137,7 +292,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "description": "Digital marketer specializing in SEO, paid advertising, content strategy, and conversion tracking for service businesses.",
   "url": "https://dulanayesh.dulanayesh2.workers.dev/",
   "email": "mailto:dulanayesh2@gmail.com",
-  "sameAs": ["https://www.linkedin.com/in/dulanayesh/"]
+  "image": "https://dulanayesh.dulanayesh2.workers.dev/assets/portfolio/founder-photo.jpg",
+  "sameAs": ["https://www.linkedin.com/in/dulanayesh/"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Colombo", "addressCountry": "LK" },
+  "worksFor": { "@type": "Organization", "name": "Ekwa Marketing" },
+  "knowsAbout": [
+    "Google Ads", "Pay-per-click advertising", "Meta Ads", "Search engine optimization",
+    "Google Analytics 4", "Google Tag Manager", "Conversion tracking",
+    "Landing page optimization", "Email marketing", "Content strategy"
+  ],
+  "hasCredential": [
+    { "@type": "EducationalOccupationalCredential", "name": "Google Ads Measurement Certification", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "Google Skillshop" } },
+    { "@type": "EducationalOccupationalCredential", "name": "Google Ads Search Certification", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "Google Skillshop" } },
+    { "@type": "EducationalOccupationalCredential", "name": "SEO Certification", "credentialCategory": "certification", "recognizedBy": { "@type": "Organization", "name": "Semrush Academy" } }
+  ],
+  "alumniOf": { "@type": "EducationalOrganization", "name": "Sri Lanka Institute of Marketing (SLIM)" }
 }
 </script>
 </head>
@@ -147,27 +316,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<a class="skiplink" href="#main">Skip to content</a>
+
 <header>
   <nav>
-    <a href="#" class="brand">Dulan Ayesh</a>
-    <div class="navlinks">
+    <a href="#top" class="brand">Dulan Ayesh</a>
+    <div class="navlinks" id="navlinks">
       <a href="#about">About</a>
+      <a href="#experience">Experience</a>
       <a href="#case-study">Case Study</a>
+      <a href="#builds">Builds</a>
       <a href="#writing">Writing</a>
-      <a href="#creative">Creative</a>
       <a href="#results">Results</a>
+      <a href="#contact" class="navcta-mobile">Get in touch</a>
     </div>
-    <a href="mailto:dulanayesh2@gmail.com" class="navcta">Get in touch</a>
+    <a href="#contact" class="navcta">Get in touch</a>
+    <button class="navtoggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
   </nav>
 </header>
 
-<section class="hero">
+<main id="main">
+
+<section class="hero" id="top">
   <div class="wrap">
-    <span class="eyebrow">Dulan Ayesh</span>
-    <h1>Full-stack digital marketer, focused on <em>predictable</em> growth.</h1>
-    <p class="lede">I help service businesses turn marketing into something measurable: more visibility, more qualified leads, and clearer ROI — across SEO, paid ads, content, and conversion tracking.</p>
+    <span class="eyebrow">Dulan Ayesh Hettihewa &mdash; Colombo, Sri Lanka (Remote, GMT+5:30)</span>
+    <h1>I run the ads, build the pages they point to, and <em>track</em> what they return.</h1>
+    <p class="lede">Full-stack digital marketer currently managing <strong>$20,000+ in monthly Google Ads spend across 16 US and Canadian healthcare accounts</strong>. Paid search and social, SEO and content, landing pages, email, and the conversion tracking that proves any of it worked.</p>
     <div class="hero-ctas">
-      <a href="mailto:dulanayesh2@gmail.com" class="btn-primary">Get in touch</a>
+      <a href="#contact" class="btn-primary">Get in touch</a>
       <a href="https://www.linkedin.com/in/dulanayesh/" target="_blank" rel="noopener" class="btn-ghost">Connect on LinkedIn</a>
     </div>
   </div>
@@ -175,10 +351,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="stats">
   <div class="wrap stats-grid">
-    <div class="stat-item"><div class="num">+319%</div><p>Google search visibility increase, one client</p></div>
-    <div class="stat-item"><div class="num">$47.01</div><p>Blended CPL turning around a stalled Meta Ads account</p></div>
-    <div class="stat-item"><div class="num">32</div><p>Published articles, real client blogs</p></div>
-    <div class="stat-item"><div class="num">5</div><p>Employers across SEO, fintech, and B2B</p></div>
+    <div class="stat-item"><div class="num">$20K+</div><p>Monthly Google Ads spend managed, across 16 US &amp; Canadian accounts</p></div>
+    <div class="stat-item"><div class="num">1,000+</div><p>Leads generated across paid search and paid social campaigns</p></div>
+    <div class="stat-item"><div class="num">10x</div><p>Organic search impressions grown for one client, 1,600 to 15,800</p></div>
+    <div class="stat-item"><div class="num">49.3%</div><p>Open rate on automated email nurture flows, at 14.8% CTR</p></div>
   </div>
 </section>
 
@@ -194,6 +370,133 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="creds">
         <span>SEO</span><span>Paid Search &amp; Social</span><span>Content Strategy</span><span>Conversion Tracking</span><span>Email Marketing</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="capabilities">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="eyebrow">Capabilities</span>
+      <h2>What I actually operate, day to day.</h2>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-col">
+        <h3>Paid media</h3>
+        <ul>
+          <li>Google Ads &mdash; Search, Performance Max, Display</li>
+          <li>Meta Ads &mdash; lead gen, conversion, retargeting</li>
+          <li>Keyword and negative keyword research</li>
+          <li>Bid, budget and Quality Score management</li>
+          <li>Audience structuring, lookalikes, A/B testing</li>
+        </ul>
+      </div>
+      <div class="cap-col">
+        <h3>Measurement</h3>
+        <ul>
+          <li>Google Analytics 4</li>
+          <li>Google Tag Manager</li>
+          <li>Google Search Console</li>
+          <li>Conversion and call tracking</li>
+          <li>ROAS / CPL analysis, Looker Studio reporting</li>
+        </ul>
+      </div>
+      <div class="cap-col">
+        <h3>Build &amp; content</h3>
+        <ul>
+          <li>Landing pages and funnel alignment</li>
+          <li>Websites &mdash; static builds, CMS, deployment</li>
+          <li>SEO: technical audits, schema, internal linking</li>
+          <li>Long-form content and blog strategy</li>
+          <li>Email flows &mdash; MailerLite, nurture sequences</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block-head" style="margin:56px 0 0;">
+      <span class="eyebrow">Certifications</span>
+    </div>
+    <div class="certs-row">
+      <div class="cert">
+        <span class="mark" aria-hidden="true">Ads</span>
+        <div><div class="nm">Google Ads Measurement</div><div class="by">Google Skillshop &middot; Mar 2026</div></div>
+      </div>
+      <div class="cert">
+        <span class="mark" aria-hidden="true">Ads</span>
+        <div><div class="nm">Google Ads Search</div><div class="by">Google Skillshop &middot; Dec 2025</div></div>
+      </div>
+      <div class="cert">
+        <span class="mark" aria-hidden="true">SEO</span>
+        <div><div class="nm">SEO Certification</div><div class="by">Semrush Academy</div></div>
+      </div>
+      <div class="cert">
+        <span class="mark" aria-hidden="true">Hub</span>
+        <div><div class="nm">SEO II &amp; Inbound</div><div class="by">HubSpot Academy</div></div>
+      </div>
+      <div class="cert">
+        <span class="mark" aria-hidden="true">Dip</span>
+        <div><div class="nm">Diploma in Digital Marketing</div><div class="by">SLIM, Colombo &middot; 2024</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="eyebrow">Experience</span>
+      <h2>Seven years in, four of them in marketing.</h2>
+      <p>Retail, fintech, B2B SaaS, healthcare, and financial services &mdash; across Sri Lankan, Australian and North American markets.</p>
+    </div>
+    <div class="tl">
+
+      <div class="tl-item now">
+        <div class="tl-role">Paid Ads Specialist</div>
+        <div class="tl-meta"><strong>Ekwa Marketing</strong> &middot; Full-time &middot; Remote (US / Canada) &middot; Mar 2026 &ndash; Present</div>
+        <p>Manage $20,000+ in monthly Google Ads spend across 16 dental and medical accounts in competitive North American paid search. 20+ active Search campaigns, structured across multiple ad groups per client for granular keyword and budget control. Generating 500+ qualified calls a month, plus account compliance and monthly client reporting.</p>
+        <div class="tl-tags"><span>Google Ads</span><span>Performance Max</span><span>Call tracking</span><span>Client reporting</span></div>
+      </div>
+
+      <div class="tl-item now">
+        <div class="tl-role">Founder &amp; Brand Strategist</div>
+        <div class="tl-meta"><strong>PsyMark Solutions</strong> &middot; Self-employed &middot; Colombo &middot; Dec 2024 &ndash; Present</div>
+        <p>Founded a psychology-driven marketing consultancy. Built the brand, the service model, and the entire web presence &mdash; including the site, its blog CMS, and its analytics stack. Client work spans paid media strategy, content, and ad readiness reviews.</p>
+        <div class="tl-tags"><span>Brand strategy</span><span>Web build</span><span>Client acquisition</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-role">Performance Marketing Specialist</div>
+        <div class="tl-meta"><strong>Rands Financial Services</strong> &middot; Freelance, full-time &middot; Remote (Australia) &middot; Mar 2025 &ndash; Nov 2025</div>
+        <p>Full ownership of digital strategy across a dual-arm Australian consultancy &mdash; mortgage broking and tax advisory. Rebuilt the Meta Ads lead generation system to a $47.01 blended cost per lead while lifting click-through from 2.29% to 3.19%. Grew organic search impressions 10x, from 1,600 to 15,800, through schema-enhanced content and geo-targeted landing pages. Built automated email nurture flows reaching a 49.3% open rate at 14.8% CTR.</p>
+        <div class="tl-tags"><span>Meta Ads</span><span>Technical SEO</span><span>Landing pages</span><span>MailerLite</span><span>GA4</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-role">Digital Marketing Executive</div>
+        <div class="tl-meta"><strong>Emojot (Pvt) Ltd</strong> &middot; Full-time &middot; Colombo &middot; Oct 2024 &ndash; May 2025</div>
+        <p>Organic and paid growth for a B2B SaaS customer-experience platform. Ran a 15-day Meta lead generation campaign targeting SMEs that produced 58 MQLs at a $2.10 cost per lead and converted 3 direct clients. Owned campaign creative, GA4 and Tag Manager tracking, and mentored junior marketers.</p>
+        <div class="tl-tags"><span>B2B SaaS</span><span>Meta Ads</span><span>GTM</span><span>Mentoring</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-role">Digital Marketing Executive &rarr; from Trainee Graphic Designer</div>
+        <div class="tl-meta"><strong>Metropolitan Technologies (MCentre)</strong> &middot; Full-time &middot; Colombo &middot; Jun 2023 &ndash; Sep 2024</div>
+        <p>Managed approximately LKR 4M (about $11,000) in Meta Ads spend over 15 months, generating 1,000+ leads across 10 retail showrooms. Ran full-funnel campaigns for major retail sale events across Metropolitan Technologies, MCentre and Canon Sri Lanka, and optimized promotional landing pages in a Laravel CMS. One Acer laptop campaign acquired 160 qualified leads in two weeks on an LKR 50K budget.</p>
+        <div class="tl-tags"><span>Retail / e-commerce</span><span>Meta Ads</span><span>Landing pages</span><span>Ad copywriting</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-role">Social Media Strategist</div>
+        <div class="tl-meta"><strong>Generation ALPHA</strong> &middot; Freelance &middot; Remote &middot; Sep 2023 &ndash; Feb 2024</div>
+        <p>Social strategy and content execution alongside the Metropolitan role.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-role">Earlier</div>
+        <div class="tl-meta">Marketing Coordinator, Avon Pharmo Chem &middot; Dec 2022 &ndash; Mar 2023 &nbsp;|&nbsp; People's Leasing &amp; Finance PLC &middot; Feb 2019 &ndash; Oct 2022</div>
+        <p>Nearly four years in financial services before moving into marketing full-time, followed by a diploma in digital marketing at SLIM Colombo.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -218,6 +521,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<section class="block" id="builds">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="eyebrow">Websites &amp; landing pages</span>
+      <h2>I don't just send traffic somewhere. I build the somewhere.</h2>
+      <p>Campaigns fail on the landing page as often as on the ad. These are sites I scoped, designed, and shipped end to end &mdash; including the analytics underneath them.</p>
+    </div>
+    <div class="sites-grid">
+
+      <div class="site-card">
+        <div class="role">Own business &middot; Live</div>
+        <h3>PsyMark Solutions</h3>
+        <p>A five-page marketing consultancy site with a self-service blog CMS, structured data across every page, and a full analytics stack. I scoped it, directed the build, chose the stack, and own the deploy pipeline &mdash; push to Git, live in under a minute. Includes a headless CMS so posts can be published without touching code.</p>
+        <div class="stack"><span>Eleventy</span><span>Cloudflare Workers</span><span>Decap CMS</span><span>GA4 / GTM</span><span>Schema.org</span></div>
+        <a href="https://psymarksolutions.com" target="_blank" rel="noopener" class="visit">Visit site &rarr;</a>
+      </div>
+
+      <div class="site-card">
+        <div class="role">Client build &middot; Live</div>
+        <h3>Chey Cherry</h3>
+        <p>A product-led site built for a small retail brand, taken from an empty repository to a deployed, indexable storefront presence. Same discipline as the paid work: fast, mobile-first, and measurable from day one rather than instrumented as an afterthought.</p>
+        <div class="stack"><span>Static build</span><span>Netlify</span><span>Responsive</span><span>SEO foundations</span></div>
+        <a href="https://chey-cherry.netlify.app" target="_blank" rel="noopener" class="visit">Visit site &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="email">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="eyebrow">Email &amp; lifecycle</span>
+      <h2>The channel that keeps working after the ad stops.</h2>
+      <p>Automated nurture flows and campaign sequences built in MailerLite for an Australian mortgage and tax consultancy, with subject lines and send timing A/B tested rather than guessed.</p>
+    </div>
+    <div class="email-grid">
+      <div class="email-stat">
+        <div class="num">49.3%</div>
+        <p>Open rate across automated nurture flows &mdash; roughly double the financial services benchmark</p>
+      </div>
+      <div class="email-stat">
+        <div class="num">14.8%</div>
+        <p>Click-through rate on the same flows, driving traffic into the mortgage enquiry funnel</p>
+      </div>
+      <div class="email-stat">
+        <div class="num">A/B</div>
+        <p>Every campaign shipped as tested variants &mdash; headline, preview text, and send timing</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="writing">
   <div class="wrap">
     <div class="block-head">
@@ -227,42 +583,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="writing-list">
       <div class="writing-item">
-        <div><h4>ATO Red Flags 2025: How to Stay Off the Audit Radar</h4><span class="src">randstax.com.au</span></div>
+        <div><h3>ATO Red Flags 2025: How to Stay Off the Audit Radar</h3><span class="src">randstax.com.au</span></div>
         <span class="badge">Top performer &mdash; 52K+ impressions</span>
         <a href="https://randstax.com.au/ato-red-flags-2025-audit-triggers/" target="_blank" rel="noopener">Read &rarr;</a>
       </div>
       <div class="writing-item">
-        <div><h4>What Can I Claim on Tax in Australia? Your 2025 Guide to Smart Deductions</h4><span class="src">randstax.com.au</span></div>
+        <div><h3>What Can I Claim on Tax in Australia? Your 2025 Guide to Smart Deductions</h3><span class="src">randstax.com.au</span></div>
         <span class="badge">21K+ impressions</span>
         <a href="https://randstax.com.au/what-can-i-claim-on-tax-australia/" target="_blank" rel="noopener">Read &rarr;</a>
       </div>
       <div class="writing-item">
-        <div><h4>Victorian Homebuyer Fund Ending: What Buyers in Victoria Must Know Before 2025 Closes</h4><span class="src">randsfinancialservices.com.au</span></div>
+        <div><h3>Victorian Homebuyer Fund Ending: What Buyers in Victoria Must Know Before 2025 Closes</h3><span class="src">randsfinancialservices.com.au</span></div>
         <span class="badge">11.5K+ impressions</span>
         <a href="https://www.randsfinancialservices.com.au/still-get-victorian-homebuyer-fund-2025/" target="_blank" rel="noopener">Read &rarr;</a>
       </div>
       <div class="writing-item">
-        <div><h4>Best Bridging Loan Rates in Australia &mdash; 2026 Guide</h4><span class="src">randsfinancialservices.com.au</span></div>
+        <div><h3>Best Bridging Loan Rates in Australia &mdash; 2026 Guide</h3><span class="src">randsfinancialservices.com.au</span></div>
         <span class="badge">15.7K+ impressions</span>
         <a href="https://www.randsfinancialservices.com.au/best-bridging-loan-rates-australia-2026/" target="_blank" rel="noopener">Read &rarr;</a>
       </div>
       <div class="writing-item">
-        <div><h4>First Home Buyer Checklist 2025 &ndash; Victoria Edition</h4><span class="src">randsfinancialservices.com.au</span></div>
+        <div><h3>First Home Buyer Checklist 2025 &ndash; Victoria Edition</h3><span class="src">randsfinancialservices.com.au</span></div>
         <span class="badge">11.3K+ impressions</span>
         <a href="https://www.randsfinancialservices.com.au/first-home-buyer-checklist-2025-victoria-edition/" target="_blank" rel="noopener">Read &rarr;</a>
       </div>
       <div class="writing-item">
-        <div><h4>The Ultimate Guide to Refinancing Your Home Loan in Victoria</h4><span class="src">randsfinancialservices.com.au</span></div>
+        <div><h3>The Ultimate Guide to Refinancing Your Home Loan in Victoria</h3><span class="src">randsfinancialservices.com.au</span></div>
         <span class="badge">Published</span>
         <a href="https://www.randsfinancialservices.com.au/refinance-home-loan-victoria-guide/" target="_blank" rel="noopener">Read &rarr;</a>
       </div>
       <div class="writing-item">
-        <div><h4>RBA Cuts Cash Rate to 3.85% in May 2025: What It Means for Your Mortgage Strategy</h4><span class="src">randsfinancialservices.com.au</span></div>
+        <div><h3>RBA Cuts Cash Rate to 3.85% in May 2025: What It Means for Your Mortgage Strategy</h3><span class="src">randsfinancialservices.com.au</span></div>
         <span class="badge">Timely / reactive</span>
         <a href="https://www.randsfinancialservices.com.au/rba-rate-cut-may-2025/" target="_blank" rel="noopener">Read &rarr;</a>
       </div>
       <div class="writing-item">
-        <div><h4>ATO Record-Keeping Rules: What You Must Keep and For How Long</h4><span class="src">randstax.com.au</span></div>
+        <div><h3>ATO Record-Keeping Rules: What You Must Keep and For How Long</h3><span class="src">randstax.com.au</span></div>
         <span class="badge">Published</span>
         <a href="https://randstax.com.au/ato-record-keeping-rules-small-business/" target="_blank" rel="noopener">Read &rarr;</a>
       </div>
@@ -316,31 +672,86 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="results-grid">
       <div class="result-card">
         <img src="assets/portfolio/result-facebook-leads.jpg" alt="Facebook leads campaign results">
-        <h4>Leads generation campaign</h4><p>364 on-platform leads from 113,500 reach, at Rs116.75 per lead.</p>
+        <h3>Leads generation campaign</h3><p>364 on-platform leads from 113,500 reach, at Rs116.75 per lead.</p>
       </div>
       <div class="result-card">
         <img src="assets/portfolio/result-messaging.jpg" alt="Social media messaging campaign results">
-        <h4>Social messaging campaign</h4><p>1,117 messaging conversations started, a 422% increase, with new contacts up 807%.</p>
+        <h3>Social messaging campaign</h3><p>1,117 messaging conversations started, a 422% increase, with new contacts up 807%.</p>
       </div>
       <div class="result-card">
         <img src="assets/portfolio/result-thruplay.jpg" alt="Video views reach-focused campaign results">
-        <h4>Video views campaign (reach-focused)</h4><p>157,229 ThruPlays and 642,595 reach on a Rs100,000 budget.</p>
+        <h3>Video views campaign (reach-focused)</h3><p>157,229 ThruPlays and 642,595 reach on a Rs100,000 budget.</p>
       </div>
       <div class="result-card">
         <img src="assets/portfolio/result-saas-leadgen.jpg" alt="B2B SaaS lead generation campaign strategy and results">
-        <h4>B2B SaaS lead generation</h4><p>58 MQLs generated, 3 clients converted within the same campaign window, at $2.10 CPL.</p>
+        <h3>B2B SaaS lead generation</h3><p>58 MQLs generated, 3 clients converted within the same campaign window, at $2.10 CPL.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="ctaband">
-  <div class="wrap">
-    <h2>Looking for a marketer who can plan, execute, and optimize end-to-end?</h2>
-    <a href="mailto:dulanayesh2@gmail.com" class="btn-primary">Get in touch</a>
+<section class="block alt" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-side">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Open to roles, and to select projects.</h2>
+      <p>I'm available for full-time and contract roles, and I take on a small number of freelance projects alongside them &mdash; paid media, SEO, or a build that needs all of it.</p>
+      <p>Tell me what you're working on and what's currently not working. That's a more useful first message than a job title.</p>
+      <div class="contact-direct">
+        <span class="eyebrow">Or reach me directly</span>
+        <a href="mailto:dulanayesh2@gmail.com">dulanayesh2@gmail.com</a>
+        <a href="https://www.linkedin.com/in/dulanayesh/" target="_blank" rel="noopener">linkedin.com/in/dulanayesh</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="form-status" id="formStatus"></div>
+      <form id="contactForm" action="https://formsubmit.co/dulanayesh2@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://dulanayesh.dulanayesh2.workers.dev/thank-you">
+        <input type="hidden" name="_subject" value="New message from your portfolio site">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_blacklist" value="guest post,link building,backlink,crypto,casino,viagra,cheap rolex,web design services">
+        <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+          <label for="_honey">Leave this empty</label>
+          <input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="senderEmail">Email</label>
+            <input type="email" id="senderEmail" name="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="company">Company or organisation</label>
+          <input type="text" id="company" name="company">
+        </div>
+        <div class="field">
+          <label for="enquiryType">What's this about?</label>
+          <select id="enquiryType" name="enquiry_type">
+            <option>A full-time or contract role</option>
+            <option>A freelance project</option>
+            <option>A paid media audit or consult</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">What are you working on?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">Send message</button>
+        <p class="form-note">Goes straight to my inbox &mdash; no email app needed. I reply within 1&ndash;2 business days.</p>
+      </form>
+    </div>
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap footer-row">
     <span>&copy; 2026 Dulan Ayesh</span>
@@ -351,5 +762,78 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
+<script>
+(function(){
+  var hd=document.querySelector('header'), t=document.querySelector('.navtoggle');
+  if(!hd||!t)return;
+  function close(){ hd.classList.remove('nav-open'); t.setAttribute('aria-expanded','false'); }
+  t.addEventListener('click',function(e){
+    e.stopPropagation();
+    var open=hd.classList.toggle('nav-open');
+    t.setAttribute('aria-expanded',open?'true':'false');
+  });
+  hd.querySelectorAll('.navlinks a').forEach(function(a){ a.addEventListener('click',close); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&hd.classList.contains('nav-open')){ close(); t.focus(); }
+  });
+  document.addEventListener('click',function(e){
+    if(hd.classList.contains('nav-open')&&!hd.contains(e.target)) close();
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var form=document.getElementById('contactForm');
+  var statusEl=document.getElementById('formStatus');
+  var btn=document.getElementById('submitBtn');
+  if(!form||!statusEl||!btn) return;
+
+  function show(msg){
+    statusEl.innerHTML=msg;
+    statusEl.className='form-status show';
+    statusEl.setAttribute('role','status');
+  }
+
+  form.addEventListener('submit', function(e){
+    var name=document.getElementById('name').value.trim();
+    var email=document.getElementById('senderEmail').value.trim();
+    var message=document.getElementById('message').value.trim();
+
+    if(!name||!email||!message){
+      e.preventDefault();
+      show('Please add your name, email, and a short message so I can reply properly.');
+      return;
+    }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){
+      e.preventDefault();
+      show('That email address looks incomplete &mdash; I need a working one to reply to.');
+      document.getElementById('senderEmail').focus();
+      return;
+    }
+
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({
+      'event':'form_submit',
+      'form_name':'portfolio_contact',
+      'enquiry_type':document.getElementById('enquiryType').value
+    });
+
+    btn.disabled=true;
+    btn.style.opacity='0.75';
+    btn.textContent='Sending…';
+
+    setTimeout(function(){
+      if(btn.disabled){
+        btn.disabled=false;
+        btn.style.opacity='';
+        btn.textContent='Send message';
+        show('That is taking longer than it should. Try once more, or email '
+           + '<a href="mailto:dulanayesh2@gmail.com">dulanayesh2@gmail.com</a> directly.');
+      }
+    }, 12000);
+  });
+})();
+</script>
 </body>
 </html>
